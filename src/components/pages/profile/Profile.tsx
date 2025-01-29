@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { EditDetailsInput } from "../../../types";
-import { ErrorMessage, Label } from "../../../auth/login/styles";
+import { ErrorMessage, Label } from "../../login/styles";
 import { AVATAR_IMG } from "../../../constant/authConstant";
 import {
   AvatarContainer,
@@ -13,6 +13,7 @@ import {
   SaveButton,
   StyledFormGroup,
 } from "./styles";
+import { useAuth } from "../../../hooks/useAuth";
 
 const Profile: React.FC = () => {
   const {
@@ -22,6 +23,9 @@ const Profile: React.FC = () => {
     setValue,
   } = useForm<EditDetailsInput>();
 
+  const { updateProfile } = useAuth();
+
+  //setting prefill value from local storage
   useEffect(() => {
     const userData = localStorage.getItem("user");
     if (userData) {
@@ -31,9 +35,31 @@ const Profile: React.FC = () => {
     }
   }, [setValue]);
 
+  /**
+   * 
+   * @param data   try {
+      const { email, password } = data;
+      const loginSuccessful = await login(email, password);
+
+      if (!loginSuccessful) {
+        setError("Invalid email or password");
+      }
+    } catch (err: unknown) {
+      setError(`An error occurred during login. Please try again.${err}`);
+    }
+  };
+   */
+
   const onSubmit = async (data: EditDetailsInput) => {
     try {
-      localStorage.setItem("user", JSON.stringify(data));
+      const { email, name } = data;
+      //
+      const updatedData = {
+        email,
+        name,
+      };
+      await updateProfile(updatedData);
+      // localStorage.setItem("user", JSON.stringify(data));
       alert("Profile updated successfully!");
     } catch (error) {
       console.error("Submission error:", error);

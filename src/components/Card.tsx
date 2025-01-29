@@ -82,6 +82,7 @@ interface LazyImageProps {
   alt: string;
 }
 
+//lazy image loading when image is loading slow from api
 const LazyImage: React.FC<LazyImageProps> = ({ src, alt }) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);

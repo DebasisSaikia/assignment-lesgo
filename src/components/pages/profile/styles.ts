@@ -1,13 +1,14 @@
 import styled, { css } from "styled-components";
-import { FormGroup } from "../../../auth/login/styles";
+import { FormGroup } from "../../login/styles";
 
 const ProfileWrapper = styled.div`
-  width: 100vw;
+  //   width: 100vw;
   height: 100vh;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 8px;
 `;
 
 const ProfileCard = styled.div`

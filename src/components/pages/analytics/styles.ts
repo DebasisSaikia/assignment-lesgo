@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 const DashboardContainer = styled.div`
   background: #fff;
-  width: 100vw;
-  height: 100vh;
   padding: 16px;
   overflow: hidden;
 `;
@@ -25,7 +23,6 @@ const Subtitle = styled.p`
 
 const ChartContainer = styled.div`
   height: 60vh;
-  width: 100vw;
   overflow: hidden;
 `;
 
@@ -34,7 +31,6 @@ const StatsContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   margin-top: 2rem;
-  width: 90vw;
 `;
 
 const StatCard = styled.div`

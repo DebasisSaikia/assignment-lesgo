@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-// import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { AuthContextType, AuthProviderProps, User } from "../../types";
 import { MOCK_EMAIL, MOCK_PASSWORD } from "../../constant/authConstant";
 
@@ -9,24 +9,25 @@ const AuthContext = createContext<AuthContextType>({
   login: () => false,
   logout: () => {},
   updateProfile: () => {},
+  isLoading: false,
 });
 
-// AuthProvider Component
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  // const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const navigate = useNavigate();
 
-  // Check for existing auth state in localStorage on initial load
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      const userData = JSON.parse(storedUser);
+      setUser(userData);
       setIsAuthenticated(true);
     }
+    setIsLoading(false);
   }, []);
 
-  // Login method
   const login = (email: string, password: string): boolean => {
     if (email === MOCK_EMAIL && password === MOCK_PASSWORD) {
       const userData: User = {
@@ -36,26 +37,20 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       };
       setUser(userData);
       setIsAuthenticated(true);
-
-      // saving in local storage for persistance
       localStorage.setItem("user", JSON.stringify(userData));
-
-      // Navigate to dashboard
-      // navigate("/dashboard");
+      navigate("/dashboard");
       return true;
     }
     return false;
   };
 
-  // Logout method
   const logout = () => {
     setUser(null);
     setIsAuthenticated(false);
     localStorage.removeItem("user");
-    // navigate("/login");
+    navigate("/login");
   };
 
-  // Update user profile
   const updateProfile = (updatedProfile: Partial<User>) => {
     setUser((prevUser) => {
       if (!prevUser) return null;
@@ -68,10 +63,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const contextValue: AuthContextType = {
     user,
     isAuthenticated,
+    isLoading,
     login,
     logout,
     updateProfile,
   };
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>

@@ -40,6 +40,7 @@ const Analytics: React.FC = () => {
         <ResponsiveContainer width="90%" height="100%">
           <BarChart width={150} data={salesData} barSize={40}>
             <CartesianGrid strokeDasharray="3 3" />
+            {/* for x axis to display day -mon - sunday */}
             <XAxis dataKey="day" />
             <YAxis />
             <Tooltip

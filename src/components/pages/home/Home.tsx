@@ -30,7 +30,7 @@ const Home: React.FC = () => {
           <Search size={20} />
         </SearchIcon>
         <SearchInput
-          type="text"
+          type="search"
           placeholder="Search recipes..."
           onChange={handleSearchChange}
           value={searchInput}
