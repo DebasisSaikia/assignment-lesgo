@@ -13,6 +13,7 @@ export interface AuthContextType {
   login: (email: string, password: string) => boolean;
   logout: () => void;
   updateProfile: (updatedProfile: Partial<User>) => void;
+  isLoading: boolean;
 }
 
 export interface LoginFormInputs {
