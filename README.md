@@ -1,50 +1,107 @@
-# React + TypeScript + Vite
+# Analytics Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive analytics dashboard built with React, TypeScript, Vite and Styled Components. Features include user authentication, responsive sidebar navigation, and various data visualization components.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔐 Sample login
 
-## Expanding the ESLint configuration
+For testing purposes, use these credentials:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Email: user@example.com
+- Password: password123
 
-- Configure the top-level `parserOptions` property like this:
+- **Authentication**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+  - Login/Logout functionality
+  - Protected routes
+  - Persistent auth state
+
+- **Dashboard Layout**
+
+  - Responsive sidebar navigation
+  - Collapsible sidebar
+  - Dynamic route rendering
+
+- **Data Visualization**
+  - Recipe browsing and search using dummy api which support search
+  - added skeleton while loading
+  - Real-time data updates
+  - Loading states with skeletons
+
+## 🛠️ Technologies Used
+
+- **Core**
+
+  - React 18
+  - TypeScript
+  - Vite (Build tool)
+
+- **Styling**
+
+  - Styled Components
+
+- **State Management & Data Fetching**
+
+  - React Query (TanStack Query)
+  - React Context
+
+- **Testing**
+
+  - React Testing Library
+  - Vitest
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/analytics-dashboard.git
+cd analytics-dashboard
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
+# or
+yarn install
 ```
+
+3. Start the development server
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+### Testing
+
+Run the test suite:
+
+```bash
+npm test
+# or
+yarn test
+```
+
+Test is failing, not configured properly
+
+## 🔗 Links
+
+- [Live Demo](https://your-demo-link.com)
+
+## 🙏 Acknowledgments
+
+- Data from [Dummy JSON](https://dummyjson.com/) for listing data
+- Icons from [Lucide Icons](https://lucide.dev/)
