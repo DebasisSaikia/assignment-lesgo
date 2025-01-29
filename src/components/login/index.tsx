@@ -75,12 +75,13 @@ const LoginForm: React.FC = () => {
 
               <form onSubmit={handleSubmit(onSubmit)}>
                 <FormGroup>
-                  <Label>Email</Label>
+                  <Label htmlFor="email">Email</Label>
                   <InputWithError
                     id="email"
                     type="email"
                     autoComplete="email"
                     placeholder="Enter email address"
+                    aria-describedby={errors.email ? "email-error" : undefined}
                     $hasError={!!errors.email}
                     {...register("email", {
                       required: "Email is required",
@@ -91,17 +92,22 @@ const LoginForm: React.FC = () => {
                     })}
                   />
                   {errors.email && (
-                    <ErrorMessage>{errors.email.message}</ErrorMessage>
+                    <ErrorMessage role="alert" id="email-error">
+                      {errors.email.message}
+                    </ErrorMessage>
                   )}
                 </FormGroup>
 
                 <FormGroup>
-                  <Label>Password</Label>
+                  <Label htmlFor="password">Password</Label>
                   <InputWithError
                     id="password"
                     type="password"
                     autoComplete="current-password"
                     placeholder="Enter password"
+                    aria-describedby={
+                      errors.password ? "password-error" : undefined
+                    }
                     $hasError={!!errors.password}
                     {...register("password", {
                       required: "Password is required",
@@ -112,7 +118,9 @@ const LoginForm: React.FC = () => {
                     })}
                   />
                   {errors.password && (
-                    <ErrorMessage>{errors.password.message}</ErrorMessage>
+                    <ErrorMessage role="alert" id="password-error">
+                      {errors.password.message}
+                    </ErrorMessage>
                   )}
                 </FormGroup>
 

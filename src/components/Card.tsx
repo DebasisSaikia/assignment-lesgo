@@ -73,6 +73,19 @@ const ImagePlaceholder = styled.div`
   color: #9ca3af;
 `;
 
+const BadgeContainer = styled.div`
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  div {
+    background: #f0a04b;
+    border-radius: 8px;
+    padding: 8px;
+    color: #fff;
+  }
+`;
+
 interface RecipeCard {
   recipe: Recipe;
 }
@@ -124,6 +137,11 @@ const Card: React.FC<RecipeCard> = ({ recipe }: RecipeCard) => {
       <RecipeInfo>Cuisine: {recipe.cuisine}</RecipeInfo>
       <RecipeInfo>Difficulty: {recipe.difficulty}</RecipeInfo>
       <RecipeInfo>Calories: {recipe.caloriesPerServing} per serving</RecipeInfo>
+      <BadgeContainer>
+        {recipe.tags?.map((val) => (
+          <div>{val}</div>
+        ))}
+      </BadgeContainer>
     </RecipeCard>
   );
 };
