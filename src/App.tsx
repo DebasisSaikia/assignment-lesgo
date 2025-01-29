@@ -1,13 +1,22 @@
 // import "./App.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "./auth/context/AuthContext";
 import LoginForm from "./auth/login";
+import Analytics from "./components/pages/analytics/Analytics";
+import Profile from "./components/pages/profile/Profile";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div>
-      <AuthProvider>
-        <LoginForm />
-      </AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          {/* <LoginForm /> */}
+          {/* <Analytics /> */}
+          <Profile />
+        </AuthProvider>
+      </QueryClientProvider>
     </div>
   );
 }

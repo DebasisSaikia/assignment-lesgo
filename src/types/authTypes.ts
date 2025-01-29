@@ -20,6 +20,11 @@ export interface LoginFormInputs {
   password: string;
 }
 
+export interface EditDetailsInput {
+  email: string;
+  name: string;
+}
+
 export interface ProfileFormInputs {
   name: string;
   email: string;
