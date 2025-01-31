@@ -199,7 +199,7 @@ const MenuButton = styled.div`
 `;
 
 const DashboardLayout: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const location = useLocation();
   const { isAuthenticated, isLoading, logout } = useAuth();
 
@@ -208,7 +208,7 @@ const DashboardLayout: React.FC = () => {
   }
 
   if (isLoading) {
-    return null; // or a loading spinner
+    return null;
   }
 
   if (!isAuthenticated) {
