@@ -7,7 +7,6 @@ const RecipeCard = styled.div`
   border-radius: 8px;
   padding: 16px;
   background: white;
-  //   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 
   &:hover {
