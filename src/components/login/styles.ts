@@ -2,21 +2,19 @@ import styled, { css } from "styled-components";
 
 const Container = styled.div`
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: rgb(246, 243, 243);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
 `;
 
 const Card = styled.div`
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 70vw;
-  max-width: 70vw;
-  min-height: 60vh;
+  width: 90%;
+  max-width: 1200px;
   overflow: hidden;
 `;
 
@@ -34,19 +32,20 @@ const ImageSection = styled.div`
 
   @media (min-width: 768px) {
     display: block;
+    height: 100%;
   }
 `;
 
 const Image = styled.img`
-  width: 42vw;
-  height: 65vh;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 `;
 
 const FormSection = styled.div`
-  padding: 2rem;
-  padding-right: 2rem;
-  margin-right: 2rem;
+  padding: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 
   @media (min-width: 768px) {
     padding: 3rem;
@@ -54,19 +53,26 @@ const FormSection = styled.div`
 `;
 
 const FormContainer = styled.div`
-  max-width: 28rem;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
+  box-sizing: border-box;
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: bold;
   margin-bottom: 2rem;
   color: #333;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const FormGroup = styled.div`
   margin-bottom: 1.5rem;
+  width: 100%;
 `;
 
 const Label = styled.label`
@@ -86,9 +92,10 @@ const Input = styled.input`
   transition: all 0.2s;
   background: #fff;
   color: #111;
+  box-sizing: border-box;
 
   &:focus {
-    outline: none !important;
+    outline: none;
     border-color: rgb(183, 185, 187);
     box-shadow: 0 0 0 2px rgba(194, 196, 199, 0.2);
   }
@@ -114,9 +121,10 @@ const FormError = styled.div`
 
 const buttonStyles = () => css`
   .button {
-    width: 200px;
+    width: 100%;
     padding: 0.75rem 1rem;
     color: white;
+    background: #1a1a1a;
     border: none;
     border-radius: 0.5rem;
     font-size: 1rem;
@@ -124,7 +132,7 @@ const buttonStyles = () => css`
     cursor: pointer;
 
     &:hover {
-      opacity: 0.7;
+      opacity: 0.9;
       transition: 0.3s ease-in-out;
     }
   }
