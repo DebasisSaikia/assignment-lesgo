@@ -35,21 +35,6 @@ const Profile: React.FC = () => {
     }
   }, [setValue]);
 
-  /**
-   * 
-   * @param data   try {
-      const { email, password } = data;
-      const loginSuccessful = await login(email, password);
-
-      if (!loginSuccessful) {
-        setError("Invalid email or password");
-      }
-    } catch (err: unknown) {
-      setError(`An error occurred during login. Please try again.${err}`);
-    }
-  };
-   */
-
   const onSubmit = async (data: EditDetailsInput) => {
     try {
       const { email, name } = data;

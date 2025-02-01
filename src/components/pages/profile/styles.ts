@@ -2,24 +2,28 @@ import styled, { css } from "styled-components";
 import { FormGroup } from "../../login/styles";
 
 const ProfileWrapper = styled.div`
-  //   width: 100vw;
-  height: 100vh;
+  min-height: 100%;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
 `;
 
 const ProfileCard = styled.div`
-  width: 400px;
-  min-height: 40vh;
+  width: 100%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 0 2px rgba(194, 196, 199, 0.2);
   background: white;
-  padding: 32px;
+  padding: 20px;
   border-radius: 8px;
+
+  @media (min-width: 768px) {
+    padding: 32px;
+  }
 `;
 
 const InputContainer = styled.div`
@@ -28,7 +32,41 @@ const InputContainer = styled.div`
   gap: 20px;
   width: 100%;
   margin-top: 2rem;
+  box-sizing: border-box;
 `;
+
+const ButtonContainer = styled.div`
+  width: 100%;
+  margin-top: 1.5rem;
+`;
+
+// const ProfileWrapper = styled.div`
+//   height: 100vh;
+//   background: #fff;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   border-radius: 8px;
+// `;
+
+// const ProfileCard = styled.div`
+//   width: 400px;
+//   min-height: 40vh;
+//   display: flex;
+//   flex-direction: column;
+//   box-shadow: 0 0 0 2px rgba(194, 196, 199, 0.2);
+//   background: white;
+//   padding: 32px;
+//   border-radius: 8px;
+// `;
+
+// const InputContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   width: 100%;
+//   margin-top: 2rem;
+// `;
 
 const Input = styled.input`
   width: 100%;
@@ -77,9 +115,9 @@ const AvatarContainer = styled.div`
   }
 `;
 
-const ButtonContainer = styled.div`
-  width: 100%;
-`;
+// const ButtonContainer = styled.div`
+//   width: 100%;
+// `;
 
 const SaveButton = styled.button`
   width: 100%;
