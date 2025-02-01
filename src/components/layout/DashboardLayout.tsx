@@ -58,7 +58,7 @@ const SidebarContent = styled.div`
 
 const Header = styled.header`
   background: white;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -219,6 +219,12 @@ const DashboardLayout: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleNavClick = () => {
+    if (window.innerWidth <= 767) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <GlobalWrapper>
       <LayoutContainer>
@@ -237,6 +243,7 @@ const DashboardLayout: React.FC = () => {
                 to="/dashboard"
                 $active={location.pathname === "/dashboard"}
                 $isOpen={isOpen}
+                onClick={handleNavClick}
               >
                 <Home size={20} />
                 {isOpen && <span>Home</span>}
@@ -246,6 +253,7 @@ const DashboardLayout: React.FC = () => {
                 to="/dashboard/profile"
                 $active={location.pathname === "/dashboard/profile"}
                 $isOpen={isOpen}
+                onClick={handleNavClick}
               >
                 <User size={20} />
                 {isOpen && <span>Profile</span>}
@@ -255,6 +263,7 @@ const DashboardLayout: React.FC = () => {
                 to="/dashboard/analytics"
                 $active={location.pathname === "/dashboard/analytics"}
                 $isOpen={isOpen}
+                onClick={handleNavClick}
               >
                 <BarChart2 size={20} />
                 {isOpen && <span>Analytics</span>}
