@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Outlet, Navigate, useLocation, Link } from "react-router-dom";
 import styled from "styled-components";
-import { Menu, Home, User, BarChart2, LogOut, X } from "lucide-react";
+import { Menu, LogOut, X } from "lucide-react";
 import { useAuth } from "../../hooks/useAuth";
 import { getRouteTitle } from "../../utils/routeName";
+import { navbarConfig } from "./navbarConfig";
 
 const GlobalWrapper = styled.div`
   margin: 0;
@@ -239,35 +240,20 @@ const DashboardLayout: React.FC = () => {
             </SidebarHeader>
 
             <NavSection>
-              <NavLink
-                to="/dashboard"
-                $active={location.pathname === "/dashboard"}
-                $isOpen={isOpen}
-                onClick={handleNavClick}
-              >
-                <Home size={20} />
-                {isOpen && <span>Home</span>}
-              </NavLink>
-
-              <NavLink
-                to="/dashboard/profile"
-                $active={location.pathname === "/dashboard/profile"}
-                $isOpen={isOpen}
-                onClick={handleNavClick}
-              >
-                <User size={20} />
-                {isOpen && <span>Profile</span>}
-              </NavLink>
-
-              <NavLink
-                to="/dashboard/analytics"
-                $active={location.pathname === "/dashboard/analytics"}
-                $isOpen={isOpen}
-                onClick={handleNavClick}
-              >
-                <BarChart2 size={20} />
-                {isOpen && <span>Analytics</span>}
-              </NavLink>
+              {navbarConfig?.map(
+                ({ id, pathname, pathTo, navLabel, navIcon: Icon }) => (
+                  <NavLink
+                    key={id}
+                    to={pathTo}
+                    $active={location.pathname === pathname}
+                    $isOpen={isOpen}
+                    onClick={handleNavClick}
+                  >
+                    <Icon size={20} />
+                    {isOpen && <span>{navLabel}</span>}
+                  </NavLink>
+                )
+              )}
             </NavSection>
 
             {isOpen && (
