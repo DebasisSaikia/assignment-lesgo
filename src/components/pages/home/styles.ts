@@ -43,7 +43,6 @@ const RecipeCard = styled.div`
   border-radius: 8px;
   padding: 16px;
   background: white;
-  //   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 
   &:hover {
@@ -78,7 +77,6 @@ const RecipeHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  //   margin-top: 12px;
   margin-bottom: 8px;
 
   h3 {
