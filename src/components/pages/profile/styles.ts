@@ -40,34 +40,6 @@ const ButtonContainer = styled.div`
   margin-top: 1.5rem;
 `;
 
-// const ProfileWrapper = styled.div`
-//   height: 100vh;
-//   background: #fff;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   border-radius: 8px;
-// `;
-
-// const ProfileCard = styled.div`
-//   width: 400px;
-//   min-height: 40vh;
-//   display: flex;
-//   flex-direction: column;
-//   box-shadow: 0 0 0 2px rgba(194, 196, 199, 0.2);
-//   background: white;
-//   padding: 32px;
-//   border-radius: 8px;
-// `;
-
-// const InputContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   gap: 20px;
-//   width: 100%;
-//   margin-top: 2rem;
-// `;
-
 const Input = styled.input`
   width: 100%;
   padding: 0.75rem 1rem;
@@ -114,10 +86,6 @@ const AvatarContainer = styled.div`
     border-radius: 50%;
   }
 `;
-
-// const ButtonContainer = styled.div`
-//   width: 100%;
-// `;
 
 const SaveButton = styled.button`
   width: 100%;
