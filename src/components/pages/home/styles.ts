@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-const PageContainer = styled.div`
-  padding: 20px;
-`;
+const PageContainer = styled.div``;
 
 const SearchContainer = styled.div`
   margin-bottom: 32px;
